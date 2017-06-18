@@ -8,18 +8,46 @@
 	<link rel="stylesheet" href="dist/style.css">
 </head>
 <body>
+	
+	<div class="page-modal">
+		<div class="page-modal__main-block">
+			<button class="page-modal__main-block__exit">X</button>
+			<form action="#" class="page-modal__main-block__form">
+				<div>Имя:</div>
+				<input type="text" name='name' class="page-modal__main-block__form__name" />
+				<div>Комментарий:</div>
+				<textarea rows='4' class="page-modal__main-block__form__description"></textarea>
+				<button class="page-modal__main-block__form__submit">Добавить</button>
+			</form>
+		</div>
+	</div>
+
+
+
+
 	<header class="page-header">
 		<button class="page-header__btn">BTN</button>
 	</header>
 	<main class="page-main">
 		<header class="page-main__top-wrap">
 			<h2 class="page-main__top-wrap__left-elem">Заявки</h2>
-			<button class="page-main__top-wrap__rigth-elem">Добавить</button>
+			<button class="page-main__top-wrap__right-elem">Добавить</button>
 		</header>
 		<section class="page-main__cont-wrap">
+			<div class="page-main__cont-wrap__center-cont">
+				<div class="page-main__cont-wrap__center-cont__head">
+					<div class="page-main__cont-wrap__center-cont__head__ID">ID</div>
+					<div class="page-main__cont-wrap__center-cont__head__name">Имя</div>
+					<div class="page-main__cont-wrap__center-cont__head__comment">Комментарий</div>
+					<div class="page-main__cont-wrap__center-cont__head__date">Дата</div>
+				</div>
+				<div class="page-main__cont-wrap__center-cont__body">
+					<!-- JS insertions -->
+				</div>
+			</div>
 			<div class="page-main__cont-wrap__bottom-cont">
 				<h6 class="page-main__cont-wrap__bottom-cont__amount">Количество: </h6>
-				<p class="page-main__cont-wrap__bottom-cont__num">0</p>
+				<p class="page-main__cont-wrap__bottom-cont__num">0<!-- JS insertions --></p>
 			</div>
 		</section>
 	</main>

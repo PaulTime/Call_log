@@ -1,3 +1,49 @@
+.page-modal
+	&__main-block
+		&__exit
+			position: absolute
+			top: 5px
+			right: 5px
+			border-radius: 50%
+			padding: 0 3px
+			font-size: 15px
+			font-weight: bold
+			color: $black
+			outline: none
+			&:focus
+				text-decoration: none
+			&:active
+				background-color: $gray
+			&:visited
+				text-decoration: none
+			&:hover
+				cursor: pointer
+				
+		&__form
+			&__name
+				margin: 2px 0 5px
+				padding: 2px 4px
+				width: 100%
+			&__description
+				margin: 2px 0 10px
+				padding: 2px 4px
+			&__submit
+				display: block
+				padding: 2px
+				border-radius: 2px
+				margin: 0 auto
+				outline: none
+				&:focus
+					text-decoration: none
+				&:active
+					background-color: $gray
+				&:visited
+					text-decoration: none
+				&:hover
+					cursor: pointer
+
+
+
 .page-header
 	&__btn
 		background-color: transparent
@@ -20,7 +66,7 @@
 	&__top-wrap
 		&__left-elem
 			margin: 0px 0px
-		&__rigth-elem
+		&__right-elem
 			padding: 4px 4px 4px 10px
 			background-color: $darkWhite
 			border: 1px solid $gray 
@@ -39,6 +85,22 @@
 				cursor: pointer
 				border-color: $black
 	&__cont-wrap
+		&__center-cont
+			margin-bottom: 20px
+			&__head
+				font-size: 13px
+				font-weight: bold
+				display: flex
+				padding: 5px 0
+				border-bottom: 1px solid $gray
+				&__ID
+					flex-basis: 140px
+				&__name
+					flex-basis: 280px
+				&__comment
+					flex-basis: 520px
+				&__date
+					flex-basis: 200px			
 		&__bottom-cont
 			display: flex
 			font-size: 12px
@@ -48,13 +110,31 @@
 				font-weight: normal
 			&__num
 				margin: 0
-				font-weight: bold					
+				font-weight: bold		
+
+.page-main__cont-wrap__center-cont
+	&__body
+		&__item
+			font-size: 13px
+			display: flex
+			padding: 5px 0
+			border-bottom: 1px solid $gray
+			&__ID
+				flex-basis: 140px
+			&__name
+				flex-basis: 280px
+			&__comment
+				flex-basis: 520px
+			&__date
+				flex-basis: 200px	
+
 
 .page-footer
 	&__top-cont
 		color: $darkGray
 		font-size: 12px
 		text-align: center
+		margin: 0 0 20px
 	&__logo
 		padding: 20px 5px
 		border: 3px solid white
