@@ -9907,7 +9907,63 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function($) {
 
+var _modal_exit = __webpack_require__(10);
+
+var _modal_exit2 = _interopRequireDefault(_modal_exit);
+
+var _modal_open = __webpack_require__(11);
+
+var _modal_open2 = _interopRequireDefault(_modal_open);
+
+var _add_item = __webpack_require__(9);
+
+var _add_item2 = _interopRequireDefault(_add_item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+$('.page-main__top-wrap__right-elem').on('click', function (e) {
+	var elem = $('.page-modal');
+	(0, _modal_open2.default)(elem);
+	return;
+});
+
+$('.page-modal__main-block__exit').on('click', function (e) {
+	var modal = $(e.currentTarget).parent().parent();
+	(0, _modal_exit2.default)(modal);
+	return;
+});
+
+var store = localStorage;
+
+$('.page-modal__main-block__form__submit').on('click', function (e) {
+	e.preventDefault();
+
+	var jname = $('.page-modal__main-block__form__name');
+	var jcomment = $('.page-modal__main-block__form__description');
+	var jcontainer = $('.page-main__cont-wrap__center-cont__body');
+	var jnum = $('.page-main__cont-wrap__bottom-cont__num');
+
+	var valid = false;
+
+	if (jname.val() && jcomment.val()) {
+		valid = true;
+	} else {
+		alert('Вы должны заполнить оба поля');
+		return;
+	};
+	if (valid) {
+		(0, _add_item2.default)(store, jname.val(), jcomment.val(), jcontainer);
+	};
+
+	jname.val('');
+	jcomment.val('');
+	jnum.text('' + store.length);
+
+	return;
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 2 */
@@ -9957,6 +10013,64 @@ __webpack_require__(0);
 __webpack_require__(2);
 
 __webpack_require__(1);
+
+/***/ }),
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = add_item;
+function add_item(store, name, comment, jcontainer) {
+
+	var ID = store.length + 1;
+	var date = new Date();
+
+	var data = { id: ID, name: name, comment: comment, date: date.toLocaleDateString() };
+	store.setItem("" + store.length, JSON.stringify(data));
+
+	var html = "<div class=\"page-main__cont-wrap__center-cont__body__item\">" + ("<div class=\"page-main__cont-wrap__center-cont__body__item__ID\">" + ID + "</div>") + ("<div class=\"page-main__cont-wrap__center-cont__body__item__name\">" + name + "</div>") + ("<div class=\"page-main__cont-wrap__center-cont__body__item__comment\">" + comment + "</div>") + ("<div class=\"page-main__cont-wrap__center-cont__body__item__date\">" + data.date + "</div>") + "</div>";
+	jcontainer.prepend(html);
+	console.log(store, data);
+}
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = modal_exit;
+function modal_exit(elem) {
+	elem.css('display', 'none');
+}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = modal_open;
+function modal_open(elem) {
+	elem.css('display', 'flex');
+}
 
 /***/ })
 /******/ ]);
