@@ -9909,15 +9909,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var _modal_exit = __webpack_require__(10);
+var _modal_exit = __webpack_require__(6);
 
 var _modal_exit2 = _interopRequireDefault(_modal_exit);
 
-var _modal_open = __webpack_require__(11);
+var _modal_open = __webpack_require__(7);
 
 var _modal_open2 = _interopRequireDefault(_modal_open);
 
-var _add_item = __webpack_require__(9);
+var _add_item = __webpack_require__(5);
 
 var _add_item2 = _interopRequireDefault(_add_item);
 
@@ -9947,10 +9947,13 @@ $('.page-modal__main-block__form__submit').on('click', function (e) {
 
 	var valid = false;
 
-	if (jname.val() && jcomment.val()) {
+	if (/([A-Z])\w*|([А-Я])\w*/.test(jname.val()) && jcomment.val()) {
 		valid = true;
-	} else {
+	} else if (!jname.val() || !jcomment.val()) {
 		alert('Вы должны заполнить оба поля');
+		return;
+	} else {
+		alert('Поле Имя должно заполняться соответствующе (example: Name)');
 		return;
 	};
 	if (valid) {
@@ -10015,11 +10018,7 @@ __webpack_require__(2);
 __webpack_require__(1);
 
 /***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10043,7 +10042,7 @@ function add_item(store, name, comment, jcontainer) {
 }
 
 /***/ }),
-/* 10 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10058,7 +10057,7 @@ function modal_exit(elem) {
 }
 
 /***/ }),
-/* 11 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

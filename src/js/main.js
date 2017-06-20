@@ -28,10 +28,13 @@ $('.page-modal__main-block__form__submit').on('click', (e) => {
 	
 	let valid = false;
 	
-	if (jname.val() && jcomment.val()) {
+	if (/([A-Z])\w*|([А-Я])\w*/.test(jname.val()) && jcomment.val()) {
 	  valid = true 
-	} else {
+	} else if (!jname.val() || !jcomment.val()) {
 		alert('Вы должны заполнить оба поля');
+		return
+	} else {
+		alert('Поле Имя должно заполняться соответствующе (example: Name)')
 		return
 	};
 	if (valid) {add_item(store, jname.val(), jcomment.val(), jcontainer)};
