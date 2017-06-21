@@ -9921,6 +9921,10 @@ var _add_item = __webpack_require__(5);
 
 var _add_item2 = _interopRequireDefault(_add_item);
 
+var _show_item = __webpack_require__(12);
+
+var _show_item2 = _interopRequireDefault(_show_item);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 $('.page-main__top-wrap__right-elem').on('click', function (e) {
@@ -9937,13 +9941,14 @@ $('.page-modal__main-block__exit').on('click', function (e) {
 
 var store = localStorage;
 
+var jcontainer = $('.page-main__cont-wrap__center-cont__body');
+var jnum = $('.page-main__cont-wrap__bottom-cont__num');
+
 $('.page-modal__main-block__form__submit').on('click', function (e) {
 	e.preventDefault();
 
 	var jname = $('.page-modal__main-block__form__name');
 	var jcomment = $('.page-modal__main-block__form__description');
-	var jcontainer = $('.page-main__cont-wrap__center-cont__body');
-	var jnum = $('.page-main__cont-wrap__bottom-cont__num');
 
 	var valid = false;
 
@@ -9966,6 +9971,12 @@ $('.page-modal__main-block__form__submit').on('click', function (e) {
 
 	return;
 });
+
+for (var prop in store) {
+	if (store.hasOwnProperty(prop) && prop != 'length') {
+		(0, _show_item2.default)(JSON.parse(store[prop]), jcontainer);
+	}
+}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
@@ -10069,6 +10080,27 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = modal_open;
 function modal_open(elem) {
 	elem.css('display', 'flex');
+}
+
+/***/ }),
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = show_item;
+function show_item(item, jcontainer) {
+	console.log(item);
+	var html = "<div class=\"page-main__cont-wrap__center-cont__body__item\">" + ("<div class=\"page-main__cont-wrap__center-cont__body__item__ID\">" + item.name + "</div>") + ("<div class=\"page-main__cont-wrap__center-cont__body__item__name\">" + item.name + "</div>") + ("<div class=\"page-main__cont-wrap__center-cont__body__item__comment\">" + item.comment + "</div>") + ("<div class=\"page-main__cont-wrap__center-cont__body__item__date\">" + item.date + "</div>") + "</div>";
+	jcontainer.prepend(html);
 }
 
 /***/ })

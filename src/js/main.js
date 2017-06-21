@@ -1,6 +1,7 @@
 import modal_exit from './modal_exit';
 import modal_open from './modal_open';
 import add_item from './add_item';
+import show_item from './show_item';
 
 
 $('.page-main__top-wrap__right-elem').on('click', (e) => {
@@ -18,13 +19,14 @@ $('.page-modal__main-block__exit').on('click', (e) => {
 
 const store = localStorage;
 
+const jcontainer = $('.page-main__cont-wrap__center-cont__body');
+const jnum = $('.page-main__cont-wrap__bottom-cont__num');
+
 $('.page-modal__main-block__form__submit').on('click', (e) => {
 	e.preventDefault();
 
 	const jname = $('.page-modal__main-block__form__name');
 	const jcomment = $('.page-modal__main-block__form__description');
-	const jcontainer = $('.page-main__cont-wrap__center-cont__body');
-	const jnum = $('.page-main__cont-wrap__bottom-cont__num');
 	
 	let valid = false;
 	
@@ -45,3 +47,9 @@ $('.page-modal__main-block__form__submit').on('click', (e) => {
 	
 	return
 });
+
+for (let prop in store) {
+    if (store.hasOwnProperty(prop) && prop != 'length' ) {
+        show_item(JSON.parse(store[prop]), jcontainer);
+    }
+}
