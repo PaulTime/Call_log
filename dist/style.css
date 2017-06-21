@@ -139,8 +139,11 @@ select {
   background-color: transparent;
   color: white;
   border-radius: 5px;
-  padding: 3px 1px;
+  padding: 3px 5px;
   border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
   outline: none; }
   .page-header__btn:focus {
     text-decoration: none; }
@@ -223,8 +226,9 @@ select {
   margin: 0 0 20px; }
 
 .page-footer__logo {
-  display: block;
+  display: flex;
   margin: 0 auto;
-  max-width: 200px; }
+  max-width: 200px;
+  max-height: 100px; }
 
 /*# sourceMappingURL=style.css.map*/
